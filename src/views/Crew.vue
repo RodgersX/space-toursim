@@ -5,25 +5,24 @@
     </div>
 
     <main>
-      <div class="info-div">
-        <section class="title">
-          <p><span>02</span> MEET YOUR CREW</p>
-        </section>
+      <section class="title">
+        <p><span>02</span> MEET YOUR CREW</p>
+      </section>
 
-        <section class="display-mobile">
-          <section class="crew-image-mobile"></section>
-
+      <section class="information-section">
+        <div class="crew-info-mobile">
+          <div class="crew-image-mobile"></div>
           <v-divider color="grey"></v-divider>
 
-          <section class="progress-dots-mobile">
+          <div class="progress-dots-mobile">
             <div class="circle active"></div>
             <div class="circle"></div>
             <div class="circle"></div>
             <div class="circle"></div>
-          </section>
-        </section>
+          </div>
+        </div>
 
-        <section class="crew-file">
+        <div class="crew-information-div">
           <p class="crew-title">COMMANDER</p>
           <p class="crew-name">DOUGLAS HURLEY</p>
           <p class="crew-desc">
@@ -31,17 +30,16 @@
             pilot and former NASA astronaut. He launched into space for the
             third time as commander of Crew Dragon Demo-2.
           </p>
-        </section>
+          <section class="progress-dots">
+            <div class="circle active"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+          </section>
+        </div>
 
-        <section class="progress-dots">
-          <div class="circle active"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-        </section>
-      </div>
-
-      <section class="crew-image-preview"></section>
+        <div class="image-preview-desktop"></div>
+      </section>
     </main>
   </div>
 </template>
@@ -51,151 +49,170 @@
   background-image: url("../assets/crew/background-crew-desktop.jpg");
   background-size: cover;
   color: white;
-  padding-top: 2.6rem;
+}
+.progress-dots,
+.progress-dots-mobile {
+  .circle {
+    width: 20px;
+    height: 20px;
+    background: rgb(88, 88, 88);
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 6px;
+  }
+  .circle.active {
+    background: white;
+  }
 }
 
-main {
-  margin: 2rem 0 0 10rem;
+.image-preview-desktop,
+.crew-image-mobile {
+  background: #0b0d17;
+}
 
-  .title {
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 28px;
-    letter-spacing: 4.72px;
-    margin-bottom: 6rem;
-    span {
-      color: grey;
-      font-weight: bold;
-    }
-  }
-  .crew-title {
-    font-family: "Bellefair", serifdiv;
-    font-size: 32px;
-  }
+.image-preview-desktop {
+  width: 400px;
+  height: 400px;
+}
 
-  .crew-name {
-    font-family: "Bellefair", serif;
-    font-size: 56px;
-    margin-top: 1rem;
+.title {
+  font-family: "Barlow Condensed", sans-serif;
+  span {
+    color: grey;
+    font-weight: bold;
   }
+}
 
-  .crew-desc {
-    font-family: "Barlow", sans-serif;
-    font-size: 18px;
-    margin: 3rem 0;
-  }
+.crew-title {
+  font-family: "Bellefair", serif;
+}
 
-  .progress-dots,
-  .progress-dots-mobile {
-    .circle {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      display: inline-block;
-      margin: 0 16px 0 0;
-      background: rgb(92, 91, 91);
-    }
+.crew-name {
+  font-family: "Bellefair", serif;
+  margin-top: 1rem;
+}
 
-    .circle.active {
-      background: white;
-    }
-  }
-
-  .progress-dots-mobile {
-    display: none;
-  }
-
-  .crew-image-preview,
-  .crew-image-mobile {
-    background: #0b0d17;
-  }
-
-  .crew-image-preview {
-    width: 400px;
-    height: 400px;
-  }
-
-  .crew-image-mobile {
-    margin: 1rem auto 3rem auto;
-    width: 300px;
-    height: 300px;
-  }
-
-  .display-mobile {
-    width: 80%;
-    margin: 3rem auto;
-  }
+.crew-desc {
+  font-family: "Barlow", sans-serif;
+  margin: 2rem 0 4rem 0;
 }
 
 @media screen and (min-width: 1200px) {
-  main {
-    display: flex;
-    height: 72vh;
-    margin-top: 10rem;
-    .info-div {
-      width: 50%;
-    }
+  #crew {
+    padding-top: 2.6rem;
+    height: 100vh;
+    main {
+      padding-top: 1rem;
+      width: 80%;
+      margin: 0 auto;
+      .crew-information-div {
+        width: 60%;
+        margin-right: 5rem;
+      }
+      .title {
+        font-size: 28px;
+        letter-spacing: 4.72px;
+      }
+      .crew-title {
+        font-size: 32px;
+      }
+      .crew-name {
+        font-size: 56px;
+      }
 
-    .crew-image-preview {
-      margin-top: 2rem;
-      margin-left: 2rem;
+      .crew-desc {
+        font-size: 18px;
+        line-height: 32px;
+      }
+      .crew-info-mobile {
+        display: none;
+      }
+
+      .information-section {
+        height: 70vh;
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }
 
-// tablet display
-@media only screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
   main {
-    margin: 0;
-    padding-bottom: 1rem;
+    padding: 1rem 0;
     .title {
-      margin: 2rem 0 0 1rem;
+      font-size: 20px;
+      letter-spacing: 3.38px;
     }
-
-    .crew-file {
+    .information-section {
       width: 70%;
-      margin: 2rem auto 0 auto;
-    }
-
-    .crew-file,
-    .progress-dots {
+      margin: auto;
       text-align: center;
     }
-
-    .crew-image-preview {
-      margin: 2rem auto 0 auto;
+    .crew-info-mobile {
+      display: none;
+    }
+    .image-preview-desktop {
+      margin: 3rem auto;
+    }
+    .crew-title {
+      font-size: 24px;
+      margin-top: 2rem;
+    }
+    .crew-name {
+      font-size: 40px;
+    }
+    .crew-desc {
+      font-size: 16px;
+      line-height: 28px;
     }
   }
 }
 
-@media only screen and (min-width: 900px) {
-  main {
-    .display-mobile {
-      display: none;
-    }
-
-    .progress-dots-mobile {
-      display: none;
-    }
+@media screen and (max-width: 900px) {
+  #crew {
+    padding-top: 1rem;
   }
-}
-
-// mobile display
-@media only screen and (max-width: 900px) {
   main {
-    .crew-image-preview {
-      display: none;
+    .title {
+      text-align: center;
+      font-size: 16px;
+      letter-spacing: 2.7px;
     }
 
-    .progress-dots {
-      display: none;
+    .information-section {
+      width: 90%;
     }
-
-    .progress-dots-mobile {
+    .crew-info-mobile {
       display: block;
-      width: 50%;
-      text-align: center;
-      margin: 2rem auto;
     }
+  }
+  .image-preview-desktop,
+  .progress-dots {
+    display: none;
+  }
+  .crew-image-mobile {
+    width: 300px;
+    height: 300px;
+    margin: 2rem auto 0 auto;
+  }
+  .crew-title {
+    font-size: 16px;
+    margin-top: 2rem;
+  }
+  .crew-name {
+    font-size: 24px;
+  }
+
+  .crew-desc {
+    font-size: 15px;
+    line-height: 25px;
+  }
+  .v-divider {
+    margin: 2rem 0;
+  }
+  .progress-dots-mobile {
+    margin-top: 2rem;
   }
 }
 </style>

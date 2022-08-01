@@ -50,7 +50,6 @@
   background-size: cover;
   padding-top: 2.6rem;
   color: white;
-  height: 100vh;
 }
 
 main {
@@ -125,6 +124,9 @@ main {
 }
 
 @media only screen and (min-width: 1200px) {
+  #destination {
+    height: 100vh;
+  }
   .destinations {
     display: flex;
     justify-content: space-around;
@@ -144,12 +146,14 @@ main {
   }
 
   main {
+    .destinations {
+      padding-bottom: 2rem;
+    }
     .image-preview {
       margin: 2rem auto;
     }
     .destinations {
       text-align: center;
-      width: 100%;
     }
 
     .title {
@@ -175,10 +179,14 @@ main {
     background-image: url("../assets/destination/background-destination-mobile.jpg");
     background-size: cover;
     padding-top: 1rem;
-    height: 125vh;
   }
 
   main {
+    .title {
+      text-align: center;
+      font-size: 16px;
+      letter-spacing: 2.7px;
+    }
     .image-preview {
       width: 300px;
       height: 300px;

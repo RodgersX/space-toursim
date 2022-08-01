@@ -83,6 +83,14 @@ main {
   align-items: center;
 }
 
+@media screen and (min-width: 1200px) {
+  main {
+    height: 70vh;
+    margin-top: auto;
+    align-items: center;
+  }
+}
+
 @media only screen and (max-width: 1200px) {
   #home {
     background-image: url("../assets/home/background-home-tablet.jpg");

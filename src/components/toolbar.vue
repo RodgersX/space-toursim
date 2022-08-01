@@ -156,11 +156,14 @@ export default {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media screen and (max-width: 900px) {
+  #toolbar {
+    margin: 0 10px;
+  }
+
   #mobile-menu {
     display: block;
     color: white;
-    margin-right: 10px;
   }
 
   #nav,
