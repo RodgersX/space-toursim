@@ -22,8 +22,8 @@ const routes = [
   },
   {
     path: "/tech",
-    name: "Destination",
-    component: () => import("../views/Destination.vue"),
+    name: "Technology",
+    component: () => import("../views/Technology.vue"),
   },
 ];
 
