@@ -49,7 +49,7 @@
 
           <div class="progress-dots-mobile">
             <div
-              id="autoFocus"
+              id="autoFocus-mobile"
               class="circle"
               @click="openCrewMember($event, 'hurley', 'douglas-mobile-image')"
             ></div>
@@ -116,20 +116,20 @@
 
           <section class="progress-dots">
             <div
-              id="autoFocus"
-              class="circle"
+              id="focus"
+              class="circle-desktop"
               @click="openCrewMember($event, 'hurley', 'douglas')"
             ></div>
             <div
-              class="circle"
+              class="circle-desktop"
               @click="openCrewMember($event, 'shuttleworth', 'mark')"
             ></div>
             <div
-              class="circle"
+              class="circle-desktop"
               @click="openCrewMember($event, 'glover', 'victor')"
             ></div>
             <div
-              class="circle"
+              class="circle-desktop"
               @click="openCrewMember($event, 'ansari', 'anousheh')"
             ></div>
           </section>
@@ -140,7 +140,7 @@
             id="anousheh"
             width="100%"
             height="100%"
-            class="image"
+            class="image-desktop"
             :src="require('../assets/crew/image-anousheh-ansari.png')"
             alt="ansari.png"
           />
@@ -148,7 +148,7 @@
             id="mark"
             width="100%"
             height="100%"
-            class="image"
+            class="image-desktop"
             :src="require('../assets/crew/image-mark-shuttleworth.png')"
             alt="mark.png"
           />
@@ -156,7 +156,7 @@
             id="victor"
             width="100%"
             height="100%"
-            class="image"
+            class="image-desktop"
             :src="require('../assets/crew/image-victor-glover.png')"
             alt="glover.png"
           />
@@ -164,7 +164,7 @@
             id="douglas"
             width="100%"
             height="100%"
-            class="image"
+            class="image-desktop"
             :src="require('../assets/crew/image-douglas-hurley.png')"
             alt="hurley.png"
           />
@@ -177,24 +177,38 @@
 <script>
 export default {
   mounted() {
-    document.getElementById("autoFocus").click();
+    document.getElementById("focus").click();
+    document.getElementById("autoFocus-mobile").click();
     document.getElementById("douglas").style.display = "block";
   },
+
   methods: {
     openCrewMember(e, crewName, imageId) {
-      var i, tabcontent, tablinks, crewImages;
+      var i,
+        tabcontent,
+        tablinks,
+        crewImages,
+        crewImagesDesktop,
+        tablinksMobile;
 
       // Get all elements with class="tabcontent" & class="image" and hide them
       tabcontent = document.getElementsByClassName("tabcontent");
       crewImages = document.getElementsByClassName("image");
+      crewImagesDesktop = document.getElementsByClassName("image-desktop");
       for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
         crewImages[i].style.display = "none";
+        crewImagesDesktop[i].style.display = "none";
       }
 
       tablinks = document.getElementsByClassName("circle");
+      tablinksMobile = document.getElementsByClassName("circle-desktop");
       for (var j = 0; j < tablinks.length; j++) {
         tablinks[j].className = tablinks[j].className.replace("active", "");
+        tablinksMobile[j].className = tablinksMobile[j].className.replace(
+          "active",
+          ""
+        );
       }
 
       document.getElementById(crewName).style.display = "block";
@@ -214,7 +228,8 @@ export default {
 }
 .progress-dots,
 .progress-dots-mobile {
-  .circle {
+  .circle,
+  .circle-desktop {
     width: 20px;
     height: 20px;
     background: rgb(88, 88, 88);
@@ -222,13 +237,15 @@ export default {
     display: inline-block;
     margin: 0 6px;
   }
-  .circle.active {
+  .circle.active,
+  .circle-desktop.active {
     background: white;
   }
 }
 
 .tabcontent,
-.image {
+.image,
+.image-desktop {
   display: none;
 }
 
