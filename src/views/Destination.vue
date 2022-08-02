@@ -11,38 +11,183 @@
 
       <section class="destinations">
         <div class="image-preview">
-          <!-- hello world -->
+          <img
+            id="moon-image"
+            width="100%"
+            class="image"
+            :src="require('../assets/destination/image-moon.png')"
+            alt=""
+          />
+          <img
+            id="mars-image"
+            width="100%"
+            class="image"
+            :src="require('../assets/destination/image-mars.png')"
+            alt=""
+          />
+          <img
+            id="europa-image"
+            width="100%"
+            class="image"
+            :src="require('../assets/destination/image-europa.png')"
+            alt=""
+          />
+          <img
+            id="titan-image"
+            width="100%"
+            class="image"
+            :src="require('../assets/destination/image-titan.png')"
+            alt=""
+          />
         </div>
         <div class="destination-details">
           <ul class="destination-list">
-            <li class="destination-name active">MOON</li>
-            <li class="destination-name">MARS</li>
-            <li class="destination-name">EUROPA</li>
-            <li class="destination-name">TITAN</li>
+            <li
+              id="defaultOpen"
+              class="destination-name"
+              @click="openDestination($event, 'MOON', 'moon-image')"
+            >
+              MOON
+            </li>
+            <li
+              class="destination-name"
+              @click="openDestination($event, 'MARS', 'mars-image')"
+            >
+              MARS
+            </li>
+            <li
+              class="destination-name"
+              @click="openDestination($event, 'EUROPA', 'europa-image')"
+            >
+              EUROPA
+            </li>
+            <li
+              class="destination-name"
+              @click="openDestination($event, 'TITAN', 'titan-image')"
+            >
+              TITAN
+            </li>
           </ul>
 
-          <p class="destination-name-bold">MARS</p>
-          <p class="destination-info">
-            Don’t forget to pack your hiking boots. You’ll need them to tackle
-            Olympus Mons, the tallest planetary mountain in our solar system.
-            It’s two and a half times the size of Everest!
-          </p>
-          <v-divider color="grey" class="divider" />
-          <div class="distance-time">
-            <section class="below-divider">
-              <p style="margin-bottom: 10px">AVG. DISTANCE</p>
-              <p class="num-values">225 MIL. KM</p>
-            </section>
-            <section class="below-divider">
-              <p style="margin-bottom: 10px">EST. TRAVEL TIME</p>
-              <p class="num-values">9 MONTHS</p>
-            </section>
+          <div id="MOON" class="tabcontent">
+            <p class="destination-name-bold">MOON</p>
+            <p class="destination-info">
+              See our planet as you’ve never seen it before. A perfect relaxing
+              trip away to help regain perspective and come back refreshed.
+              While you’re there, take in some history by visiting the Luna 2
+              and Apollo 11 landing sites.
+            </p>
+            <v-divider color="grey" class="divider" />
+            <div class="distance-time">
+              <section class="below-divider">
+                <p style="margin-bottom: 10px">AVG. DISTANCE</p>
+                <p class="num-values">384,400 KM</p>
+              </section>
+              <section class="below-divider">
+                <p style="margin-bottom: 10px">EST. TRAVEL TIME</p>
+                <p class="num-values">3 DAYS</p>
+              </section>
+            </div>
+          </div>
+
+          <div id="MARS" class="tabcontent">
+            <p class="destination-name-bold">MARS</p>
+            <p class="destination-info">
+              Don’t forget to pack your hiking boots. You’ll need them to tackle
+              Olympus Mons, the tallest planetary mountain in our solar system.
+              It’s two and a half times the size of Everest!
+            </p>
+            <v-divider color="grey" class="divider" />
+            <div class="distance-time">
+              <section class="below-divider">
+                <p style="margin-bottom: 10px">AVG. DISTANCE</p>
+                <p class="num-values">225 MIL. KM</p>
+              </section>
+              <section class="below-divider">
+                <p style="margin-bottom: 10px">EST. TRAVEL TIME</p>
+                <p class="num-values">9 MONTHS</p>
+              </section>
+            </div>
+          </div>
+
+          <div id="EUROPA" class="tabcontent">
+            <p class="destination-name-bold">EUROPA</p>
+            <p class="destination-info">
+              The smallest of the four Galilean moons orbiting Jupiter, Europa
+              is a winter lover’s dream. With an icy surface, it’s perfect for a
+              bit of ice skating, curling, hockey, or simple relaxation in your
+              snug wintery cabin.
+            </p>
+            <v-divider color="grey" class="divider" />
+            <div class="distance-time">
+              <section class="below-divider">
+                <p style="margin-bottom: 10px">AVG. DISTANCE</p>
+                <p class="num-values">628 MIL. KM</p>
+              </section>
+              <section class="below-divider">
+                <p style="margin-bottom: 10px">EST. TRAVEL TIME</p>
+                <p class="num-values">3 YEARS</p>
+              </section>
+            </div>
+          </div>
+
+          <div id="TITAN" class="tabcontent">
+            <p class="destination-name-bold">TITAN</p>
+            <p class="destination-info">
+              The only moon known to have a dense atmosphere other than Earth,
+              Titan is a home away from home (just a few hundred degrees
+              colder!). As a bonus, you get striking views of the Rings of
+              Saturn.
+            </p>
+            <v-divider color="grey" class="divider" />
+            <div class="distance-time">
+              <section class="below-divider">
+                <p style="margin-bottom: 10px">AVG. DISTANCE</p>
+                <p class="num-values">1.6 BIL. KM</p>
+              </section>
+              <section class="below-divider">
+                <p style="margin-bottom: 10px">EST. TRAVEL TIME</p>
+                <p class="num-values">7 YEARS</p>
+              </section>
+            </div>
           </div>
         </div>
       </section>
     </main>
   </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    document.getElementById("defaultOpen").click();
+    document.getElementById("moon-image").style.display = "block";
+  },
+
+  methods: {
+    openDestination(e, cityName, imageId) {
+      var i, tabcontent, tablinks, destinationImages;
+
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      destinationImages = document.getElementsByClassName("image");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        destinationImages[i].style.display = "none";
+      }
+
+      tablinks = document.getElementsByClassName("destination-name");
+      for (var j = 0; j < tablinks.length; j++) {
+        tablinks[j].className = tablinks[j].className.replace("active", "");
+      }
+
+      document.getElementById(cityName).style.display = "block";
+      document.getElementById(imageId).style.display = "block";
+      e.currentTarget.className += " active";
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 #destination {
@@ -58,9 +203,13 @@ main {
   padding-top: 2rem;
 
   .image-preview {
-    background: #0b0d17;
     width: 400px;
     height: 400px;
+  }
+
+  .tabcontent,
+  .image {
+    display: none;
   }
 
   .destination-name {
@@ -141,7 +290,6 @@ main {
 @media only screen and (max-width: 1200px) {
   #destination {
     background-image: url("../assets/destination/background-destination-tablet.jpg");
-    background-size: cover;
     padding-top: 0;
   }
 
@@ -177,7 +325,6 @@ main {
 @media only screen and (max-width: 900px) {
   #destination {
     background-image: url("../assets/destination/background-destination-mobile.jpg");
-    background-size: cover;
     padding-top: 1rem;
   }
 

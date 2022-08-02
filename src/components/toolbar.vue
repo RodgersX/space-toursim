@@ -1,7 +1,7 @@
 <template>
   <div id="toolbar">
     <!-- web logo -->
-    <div id="logo">
+    <div id="logo" @click="$router.push('/')">
       <img :src="require('../assets/shared/logo.svg')" alt="" />
     </div>
 
